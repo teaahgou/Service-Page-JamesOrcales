@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Page by James Orcales</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <!-- Include FontAwesome CSS link in your <head> if not already included -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+</head>
+
+<body class="bg-gray-100 font-sans leading-normal tracking-normal" style="font-family: 'Poppins';">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="absolute top-0 w-full z-10">
+        <div class="menu container mx-auto flex justify-between items-center py-4">
+            <a href="#"><img src="images\jhsereno-light" alt="Logo" class="h-6"></a>
+            <ul class="flex space-x-4 text-white">
+                <li class="relative" onmouseleave="closeDropdown(event)">
+                    <a href="#" class="hover:text-gray-300" onmouseenter="openDropdown(event)">HOMES</a>
+                    <ul id="dropdownMenu"
+                        class="absolute left-0 mt-2 bg-white text-gray-800 shadow-md py-2 hidden w-60">
+                        <li><a href="https://hansenpartners.net/home-search/listings?sortBy=LP_LISTING_ON_MARKET_TIMESTAMP&sortDirection=DESC&propertyType=%5B%22COMMERCIAL%22%2C%22CONDO%22%2C%22CO_OP%22%2C%22LAND%22%2C%22MANUFACTURED_MOBILE%22%2C%22MULTI_FAMILY%22%2C%22OTHER%22%2C%22RESIDENTIAL%22%2C%22TOWNHOUSE%22%5D&listingStatus=%5B%22ACTIVE%22%2C%22COMING_SOON%22%5D&center=%7B%22lat%22%3A37.695118812286985%2C%22lng%22%3A-121.90293729999999%7D&zoom=11&boundary=%5B%5B%5B37.8470939084458%2C-122.19304502705077%5D%2C%5B37.8470939084458%2C-121.61282957294921%5D%2C%5B37.542831573521696%2C-121.61282957294921%5D%2C%5B37.542831573521696%2C-122.19304502705077%5D%2C%5B37.8470939084458%2C-122.19304502705077%5D%5D%5D&omnibox=&keyword=&page=1&limit=48&isLease=false&cityName=&stateName="
+                                class="block px-4 py-2 hover:bg-gray-200 hover:text-gray-800"
+                                onclick="closeOnSelect(event)">SEARCH FOR HOMES</a></li>
+                        <li><a href="https://hansenpartners.net/home-valuation" class="block px-4 py-2 hover:bg-gray-200 hover:text-gray-800"
+                                onclick="closeOnSelect(event)">HOME VALUATION</a></li>
+                        <li><a href="https://hansenpartners.net/FeaturedListingHOA" class="block px-4 py-2 hover:bg-gray-200 hover:text-gray-800"
+                                onclick="closeOnSelect(event)">HOME ACROSS AMERICA</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://hansenpartners.net/neighborhoods" class="hover:text-gray-300">OUR COMMUNITIES</a>
+                </li>
+                <li><a href="#" class="hover:text-gray-300">SERVICES</a></li>
+                <li><a href="https://hansenpartners.net/testimonials" class="hover:text-gray-300">TESTIMONIALS</a></li>
+                <li><a href="https://hansenpartners.net/team" class="hover:text-gray-300">MEET THE TEAM</a></li>
+                <li><a href="#" class="hover:text-gray-300">CONTACT US</a></li>
+                <li><a href="#"
+                        class="hover:bg-gray-800 hover:text-white px-4 py-4 rounded-3xl shadow-md bg-white text-gray-800">BOOK
+                        AN APPOINTMENT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            var navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-black');
+                navbar.classList.remove('bg-transparent');
+            } else {
+                navbar.classList.remove('bg-black');
+                navbar.classList.add('bg-transparent');
+            }
+        });
+    </script>
+
+    <script>
+        let menuOpen = false;
+
+        function openDropdown(event) {
+            const submenu = document.getElementById('dropdownMenu');
+            submenu.classList.remove('hidden');
+            menuOpen = true;
+        }
+
+        function closeDropdown(event) {
+            if (!menuOpen) {
+                const submenu = document.getElementById('dropdownMenu');
+                submenu.classList.add('hidden');
+            }
+            menuOpen = false;
+        }
+
+        function closeOnSelect(event) {
+            const submenu = document.getElementById('dropdownMenu');
+            submenu.classList.add('hidden');
+            menuOpen = false;
+        }
+    </script>
+
+
+    <!-- Hero Section -->
+    <section class="hero-section relative bg-cover bg-center" style="background-image: url('images/bg.jpg');">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="container mx-auto text-center relative z-10 mt-12">
+            <h1 class="text-6xl font-bold text-white mb-4" style="font-family: 'Merriweather';">Services</h1>
+            <h2 class="text-xl font-regular text-white">Whether you're buying, selling, or investing,<br> our expert
+                team is dedicated to guiding you through every step of the process. </h2>
+        </div>
+    </section>
+
+    <div class="container mx-auto">
+        <div class="wrapper flex overflow-x-auto">
+            <div class="logo flex space-x-0.5">
+                <img src="images\realtor.png" class="realtor item item1" alt="Logo 1">
+                <img src="images\zillow.png" class="zillow item item2" alt="Logo 2">
+                <img src="images\trulia.png" class="item item3" alt="Logo 3">
+                <img src="images\presence.png" class="item item4" alt="Logo 4">
+                <img src="images\jhsereno-dark" class="item item5" alt="Logo 5">
+                <img src="images\leading.png" class="leading item item6" alt="Logo 6">
+                <img src="images\luxury.webp" class="item item7" alt="Logo 7">
+                <img src="images\port.png" class="port item item8" alt="Logo 8">
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content - Services -->
+    <div class="service mx-auto my-8">
+        <h3 class="text-xl text-center mb-4 font-thin text-white" style="font-family: 'Merriweather';">
+            What We Can Do For You</h3>
+        <h2 class="text-4xl text-center mb-12 font-semibold text-white" style="font-family: 'Merriweather';">
+            Comprehensive Marketing Plan</h2>
+
+        <div class="services-grid">
+            <!-- Service Item 1 -->
+            <div class="service-item flex flex-col shadow-md items-center text-center">
+                <div>
+                    <img src="images\email.png" alt="Logo 1" class="h-20 w-20 mx-auto">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2 mt-4">Responsive</h3>
+                    <p class="text-gray-600">I am always available via phone, text, or email.</p>
+                </div>
+            </div>
+
+            <!-- Service Item 2 -->
+            <div class="service-item flex flex-col shadow-md items-center text-center">
+                <div>
+                    <img src="images\milestone.png" alt="Logo 2" class="h-20 w-20 mx-auto">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2 mt-4">Syndication</h3>
+                    <p class="text-gray-600">I market your property locally, nationally, and internationally.</p>
+                </div>
+            </div>
+
+            <!-- Service Item 3 -->
+            <div class="service-item flex flex-col shadow-md items-center text-center">
+                <div>
+                    <img src="images\map.png" alt="Logo 3" class="h-20 w-20 mx-auto">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2 mt-4">Virtual Tour</h3>
+                    <p class="text-gray-600">Let's make your home stand out with a high-quality virtual tour.</p>
+                </div>
+            </div>
+
+            <!-- Service Item 4 -->
+            <div class="service-item flex flex-col shadow-md items-center text-center">
+                <div>
+                    <img src="images\gallery.png" alt="Logo 4" class="h-20 w-20 mx-auto">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2 mt-4">Photography</h3>
+                    <p class="text-gray-600">Beautiful, high-end photography is a central part of our marketing plan for
+                        your property.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Gallery Section -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto mb-12">
+
+            <div class="grid grid-cols-2 gap-2">
+                <!-- Gallery Item 1 (Box with title) -->
+                <div class="gallery-item relative overflow-hidden rounded-lg shadow-md">
+                    <div class="bg-gray-100 h-64 flex items-center justify-center">
+                        <p class="text-gray-700 text-2xl font-semibold text-center"
+                            style="font-family: 'Merriweather';">Decor <br> Guidance</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 (Regular image with title) -->
+                <div class="gallery-item relative overflow-hidden rounded-lg shadow-md">
+                    <img src="images\img1" alt="Gallery Image 2" class="object-cover w-full h-64">
+                    <div
+                        class="absolute inset-0 flex items-center justify-center text-white text-xl font-semibold bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 (Regular image with title) -->
+                <div class="gallery-item relative overflow-hidden rounded-lg shadow-md">
+                    <img src="images\img2" alt="Gallery Image 5" class="object-cover w-full h-64">
+                    <div
+                        class="absolute inset-0 flex items-center justify-center text-white text-xl font-semibold bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 (Box with title and list) -->
+                <div class="gallery-item relative overflow-hidden rounded-lg shadow-md">
+                    <div class="bg-gray-100 h-64 flex flex-col items-center justify-center p-6">
+                        <p class="text-gray-700 text-2xl font-semibold mb-4" style="font-family: 'Merriweather';">My
+                            Staging Expertise</p>
+                        <ul class="text-gray-700 text-lg list-disc pl-4">
+                            <li>Unclutter and organize your home</li>
+                            <li>Neatly arrange drawers and cabinets</li>
+                            <li>Keep pets outdoors or off the premises</li>
+                            <li>Play soft music</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <!-- Gallery Item 8 (Box with title) -->
+                <div class="gallery-item relative overflow-hidden rounded-lg shadow-md">
+                    <div class="bg-gray-100 h-64 flex items-center justify-center">
+                        <p class="text-gray-700 text-center text-2xl font-semibold"
+                            style="font-family: 'Merriweather';">Intentional <br> ​​​​​​​Layout</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 (Regular image with title) -->
+                <div class="gallery-item relative overflow-hidden rounded-lg shadow-md">
+                    <img src="images\img3" alt="Gallery Image 6" class="object-cover w-full h-64">
+                    <div
+                        class="absolute inset-0 flex items-center justify-center text-white text-xl font-semibold bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                </div>
+
+                <!-- Gallery Item 7 (Regular image with title) -->
+                <div class="gallery-item relative overflow-hidden rounded-lg shadow-md">
+                    <img src="images\img4" alt="Gallery Image 7" class="object-cover w-full h-64">
+                    <div
+                        class="absolute inset-0 flex items-center justify-center text-white text-xl font-semibold bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 (Box with title and list) -->
+                <div class="gallery-item relative overflow-hidden rounded-lg shadow-md">
+                    <div class="bg-gray-100 h-64 flex flex-col items-center justify-center p-6">
+                        <p class="text-gray-700 text-2xl font-semibold mb-4" style="font-family: 'Merriweather';">My
+                            Staging Expertise</p>
+                        <ul class="text-gray-700 text-lg list-disc pl-4">
+                            <li>Unclutter and organize your home</li>
+                            <li>Neatly arrange drawers and cabinets</li>
+                            <li>Keep pets outdoors or off the premises</li>
+                            <li>Play soft music</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Selling Process Section -->
+    <section class="bg-cover bg-center" style="background-image: url('images/bg-process.jpg');">
+        <div class="process bg-black bg-opacity-80 shadow-md">
+            <h2 class="text-4xl font-bold text-center text-white mb-12 mt-12" style="font-family: 'Merriweather';">The
+                Selling Process</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Step 1 -->
+                <div class="bg-white bg-opacity-60 rounded-lg p-6 flex items-center">
+                    <div class="rounded-full text-gray-800 p-4 mr-4">
+                        <span class="text-5xl font-bold" style="font-family: 'Merriweather';">1</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2" style="font-family: 'Merriweather';">Initial Consultation &
+                            Planning</h3>
+                        <p class="text-gray-700">Collaborate with our experts to plan your selling strategy.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-black bg-opacity-60 rounded-lg p-6 flex items-center">
+                    <div class="rounded-full text-white p-4 mr-4">
+                        <span class="text-5xl font-bold" style="font-family: 'Merriweather';">2</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl text-white font-bold mb-2" style="font-family: 'Merriweather';">Devise &
+                            Execute
+                            Marketing Plan</h3>
+                        <p class="text-gray-400">Implement tailored marketing tactics to maximize exposure.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-white bg-opacity-60 rounded-lg p-6 flex items-center">
+                    <div class="rounded-full text-gray-800 p-4 mr-4">
+                        <span class="text-5xl font-bold" style="font-family: 'Merriweather';">3</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2" style="font-family: 'Merriweather';">Review Offers & Reach
+                            Agreement with Buyer</h3>
+                        <p class="text-gray-700">Navigate negotiations and secure the best deal.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="bg-black bg-opacity-60 rounded-lg p-6 flex items-center">
+                    <div class="rounded-full text-white p-4 mr-4">
+                        <span class="text-5xl font-bold" style="font-family: 'Merriweather';">4</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl text-white font-bold mb-2" style="font-family: 'Merriweather';">Complete
+                            Transaction
+                            Process</h3>
+                        <p class="text-gray-400">Manage paperwork and ensure a smooth closing.</p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="bg-white bg-opacity-60 rounded-lg p-6 flex items-center">
+                    <div class="rounded-full text-gray-800 p-4 mr-4">
+                        <span class="text-5xl font-bold" style="font-family: 'Merriweather';">5</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2" style="font-family: 'Merriweather';">After-Sale Service</h3>
+                        <p class="text-gray-700">Provide ongoing support to address post-sale needs.</p>
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="bg-black bg-opacity-60 rounded-lg p-6 flex items-center">
+                    <div class="rounded-full text-white p-4 mr-4">
+                        <span class="text-5xl font-bold" style="font-family: 'Merriweather';">6</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 text-white" style="font-family: 'Merriweather';">Feedback
+                            Collection &
+                            Improvement</h3>
+                        <p class="text-gray-400">Gather feedback and refine strategies for future sales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Divider Line -->
+        <div class="border-t-2 border-gray-400"></div>
+
+        <!-- The Buying Process -->
+        <div class="process bg-black bg-opacity-80 shadow-md">
+            <h2 class="text-4xl font-bold text-center text-white mb-12 mt-12" style="font-family: 'Merriweather';">The
+                Buying Process</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Step 1 -->
+                <div class="bg-white bg-opacity-60 rounded-lg p-6 flex items-center">
+                    <div class="rounded-full text-gray-800 p-4 mr-4">
+                        <span class="text-5xl font-bold" style="font-family: 'Merriweather';">1</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2" style="font-family: 'Merriweather';">Initial Consultation &
+                            Planning</h3>
+                        <p class="text-gray-700">Collaborate with our experts to plan your selling strategy.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-black bg-opacity-60 rounded-lg p-6 flex items-center">
+                    <div class="rounded-full text-white p-4 mr-4">
+                        <span class="text-5xl font-bold" style="font-family: 'Merriweather';">2</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl text-white font-bold mb-2" style="font-family: 'Merriweather';">Search for
+                            Home and Get Pre-Approved</h3>
+                        <p class="text-gray-400">Implement tailored marketing tactics to maximize exposure.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-white bg-opacity-60 rounded-lg p-6 flex items-center">
+                    <div class="rounded-full text-gray-800 p-4 mr-4">
+                        <span class="text-5xl font-bold" style="font-family: 'Merriweather';">3</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2" style="font-family: 'Merriweather';">Submit an Offer</h3>
+                        <p class="text-gray-700">Navigate negotiations and secure the best deal.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="bg-black bg-opacity-60 rounded-lg p-6 flex items-center">
+                    <div class="rounded-full text-white p-4 mr-4">
+                        <span class="text-5xl font-bold" style="font-family: 'Merriweather';">4</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl text-white font-bold mb-2" style="font-family: 'Merriweather';">Complete
+                            Settlement
+                            Process</h3>
+                        <p class="text-gray-400">Manage paperwork and ensure a smooth closing.</p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="bg-white bg-opacity-60 rounded-lg p-6 flex items-center">
+                    <div class="rounded-full text-gray-800 p-4 mr-4">
+                        <span class="text-5xl font-bold" style="font-family: 'Merriweather';">5</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2" style="font-family: 'Merriweather';">After-Buy Service</h3>
+                        <p class="text-gray-700">Provide ongoing support to address post-sale needs.</p>
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="bg-black bg-opacity-60 rounded-lg p-6 flex items-center">
+                    <div class="rounded-full text-white p-4 mr-4">
+                        <span class="text-5xl font-bold" style="font-family: 'Merriweather';">6</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 text-white" style="font-family: 'Merriweather';">Feedback
+                            Collection &
+                            Improvement</h3>
+                        <p class="text-gray-400">Gather feedback and refine strategies for future sales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="bg-white shadow-md rounded-lg p-8">
+        <div class="about grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-24">
+            <div>
+                <!-- Placeholder for your first image -->
+                <img src="images\edit1" alt="Company Image 1" class="rounded-lg shadow-md">
+            </div>
+            <div>
+                <p class="text-2xl text-gray-700 leading-relaxed">Get to know our company.</p>
+                <h2 class="text-5xl font-bold text-gray-800 mb-4" style="font-family: 'Merriweather';">Over 33 Years of
+                    Real Estate <span class="text-gray-500">Success</span></h2>
+
+                <p class="text-gray-700 leading-relaxed text-justify">We provide every one of our clients with a level
+                    of service
+                    they won’t find anywhere else. We give them what they need, often before they know they need it.
+                    ​​​​​​​In real estate, almost everything can be negotiated. When you choose Hansen Partners It is
+                    experience is 100% nonnegotiable. ​​​​​​​ ​​​​​​​And it’s an experience like no other.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white shadow-md rounded-lg p-8">
+        <div class="about grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+                <h2 class="text-5xl font-bold text-gray-900 mb-4" style="font-family: 'Merriweather';">We Want To Create
+                    An <span class="text-gray-500">Unforgettable</span> Experience For You</h2>
+
+                <p class="text-gray-700 leading-relaxed text-justify">We combine data gained from your home’s
+                    Comparative Market
+                    Analysis with local market research to create a marketing plan designed to help you meet your
+                    selling goals. Your home’s carefully designed plan will include a range of online, print, and other
+                    marketing tools targeted to the best-qualified pool of buyers. ​​​​​​​ Successfully marketing a home
+                    in today’s real estate environment requires a firm with experience and flexibility. Hansen Partners
+                    provides both.</p>
+            </div>
+            <div>
+                <!-- Placeholder for your first image -->
+                <img src="images\edit2" alt="Company Image 1" class="rounded-lg shadow-md">
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white shadow-md rounded-lg p-8">
+        <div class="about grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+                <!-- Placeholder for your first image -->
+                <img src="images\edit3" alt="Company Image 1" class="edit3 rounded-lg shadow-md">
+            </div>
+            <div>
+                <h2 class="text-5xl font-bold text-gray-800 mb-4" style="font-family: 'Merriweather';"><span
+                        class="text-gray-500">The Hansen</span>
+                    Partners Communications Tablet</h2>
+
+                <p class="text-gray-700 leading-relaxed text-justify">We have created this as a wonderful tool so that
+                    we can
+                    communicate with you daily, provide you with updates on what is happening with your home. We are
+                    available at the with a click of your tablet.</p> <br>
+                <p class="text-gray-700 leading-relaxed text-justify">We believe that transparency and guiding you and
+                    your family
+                    through the process is key to having the best experience. During these uncertain times. It is a good
+                    feeling to know you have some one with a proven track record you can count on. We will be here to
+                    handle your needs during the Real Estate process. We think of it before a need even arises. Because,
+                    that is just what we do. Who you work with does matter! </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white shadow-md rounded-lg p-8">
+        <div class="text-center mt-24 mb-12">
+            <p class="text-2xl text-gray-700 leading-relaxed">We Market Your Home to The World</p>
+            <h2 class="text-5xl font-bold text-gray-800 mb-4" style="font-family: 'Merriweather';">Our Online Marketing
+                Strategy</h2>
+            <p class="market text-gray-700 text-center leading-relaxed">The Bay Area remains one of the world's most
+                sought-after
+                regions to live in, and when looking to sell, it is vital that your home be marketed online to audiences
+                locally, nationally, and internationally.</p>
+        </div>
+
+        <div class="flex flex-wrap justify-center mt-8">
+            <div class="strategy-box mb-8 mr-4 shadow-md">
+                <h3 class="text-3xl text-center font-bold text-gray-800 mb-2" style="font-family: 'Merriweather';">Local
+                    Exposure</h3>
+                <p class="text-gray-700 text-justify leading-relaxed">Through our partnership with Nextdoor, the private
+                    online
+                    social network now used in over 80% of U.S. neighborhoods and virtually all Bay Area neighborhoods,
+                    we make sure your home receives targeted local exposure. When you list your home with Hansen
+                    Partners, it will automatically appear on Nextdoor in your neighborhood.</p>
+            </div>
+
+            <div class="strategy-box mb-8 mr-4 shadow-md">
+                <h3 class="text-3xl text-center font-bold text-gray-800 mb-2" style="font-family: 'Merriweather';">
+                    National Exposure</h3>
+                <p class="text-gray-700 text-justify leading-relaxed">We secure strategic positioning and enhancement on
+                    Realtor.com,
+                    Trulia, and Zillow, driving more consumers to your home and increasing exposure. We will receive
+                    every inquiry about your property directly.</p>
+            </div>
+
+            <div class="strategy-box mb-8 mr-4 shadow-md">
+                <h3 class="text-3xl text-center font-bold text-gray-800 mb-2" style="font-family: 'Merriweather';">
+                    International Exposure</h3>
+                <p class="text-gray-700 text-justify leading-relaxed">To expose your luxury listing to millions of
+                    potential
+                    homebuyers worldwide, we promote on prominent international real estate portals, including: Wall
+                    Street Journal, LuxuryPortfolio.com, LuxuryRealEstate.com, LeadingRE.com, UniqueHomes.com,
+                    China.apr.com, Caimeiju, Juwai, Country Life UK.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-black shadow-md p-8">
+        <div class="text-center">
+            <h2 class="text-2xl font-semi text-white mb-8" style="font-family: 'Merriweather';">Corporate Clients
+            </h2>
+        </div>
+        <div class="flex flex-wrap justify-center">
+            <div class="w-1/4 p-4 flex justify-center">
+                <img src="images\leading1.png" alt="Logo 1" class="corp1">
+            </div>
+            <div class="w-1/4 p-4 flex justify-center">
+                <img src="images\luxury.png" alt="Logo 2" class="corp">
+            </div>
+            <div class="w-1/4 p-4 flex justify-center">
+                <img src="images\port1.png" alt="Logo 3" class="corp">
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white shadow-md rounded-lg p-8">
+        <div class="about grid grid-cols-1 md:grid-cols-2 items-center mt-12 mb-12">
+            <div class="pics relative">
+                <!-- Placeholder for your first image -->
+                <img src="images\edit4.png" alt="Company Image 1" class="edit4 rounded-lg shadow-md">
+                <!-- Additional image overlapping the first image at the lower left -->
+                <img src="images\edit5.png" alt="Additional Image"
+                    class="edit5 absolute bottom-0 left-0 w-40 h-40 ml-2 -mb-12 rounded-lg z-10 border border-white">
+            </div>
+            <div>
+                <h2 class="text-5xl font-bold text-gray-800 mb-2" style="font-family: 'Merriweather';">Who's Who in
+                    Luxury<span class="text-gray-500"> Real Estate</span></h2>
+
+                <p class="text-gray-700 leading-relaxed text-justify mb-4">JRockcliff is a founding member of Luxury
+                    Portfolio International®, the luxury division of Leading Real Estate Companies of the World®. With
+                    more than 500 member firms around the world, Our luxury listings are exposed to a vast global
+                    audience and reach potential buyers and investors in over 50 countries.</p>
+
+                <p class="text-gray-700 leading-relaxed text-justify">Through our international affiliations, we have a
+                    strong presence in over 50 countries. Our luxury listings are sent to prominent international real
+                    estate sites, reaching over 70 million potential buyers and investors worldwide through our
+                    relationships. We also have several well-positioned affiliate offices in China, providing our
+                    clients with access to buyers in Hong Kong, Shanghai, and Beijing.</p>
+                <div class="container mx-auto">
+                    <div class="wrapper flex overflow-x-auto">
+                        <div class="logo flex space-x-0.5">
+                            <img src="images\realtor.png" class="realtor item item1" alt="Logo 1">
+                            <img src="images\zillow.png" class="zillow item item2" alt="Logo 2">
+                            <img src="images\trulia.png" class="item item3" alt="Logo 3">
+                            <img src="images\presence.png" class="item item4" alt="Logo 4">
+                            <img src="images\jhsereno-dark" class="item item5" alt="Logo 5">
+                            <img src="images\leading.png" class="leading item item6" alt="Logo 6">
+                            <img src="images\luxury.webp" class="item item7" alt="Logo 7">
+                            <img src="images\port.png" class="port item item8" alt="Logo 8">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work with Us Section -->
+    <section class="hero-section relative bg-cover bg-center" style="background-image: url('images/work.jpg');">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="container mx-auto text-center relative z-10">
+            <h1 class="text-5xl font-bold text-white mb-4" style="font-family: 'Merriweather';">Work With Us</h1>
+            <h2 class="text-xl font-regular text-white">
+                With decades of experience in luxurious Tri Valley real estate,
+                our team is here <br> to ensure that your dreams are a reality.
+                Let us guide you through your <br> home buying journey, contact us today!
+            </h2>
+            <a href="#contact"
+                class="bg-white text-gray-800 font-bold rounded-full mt-6 py-3 px-6 inline-block hover:bg-gray-300 transition duration-300">Contact
+                Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-4">
+        <div class="container mx-auto flex flex-wrap justify-between mt-12">
+            <!-- Left side content -->
+            <div class="max-w-lg mx-auto mb-4">
+                <h3 class="text-2xl font-bold mb-2" style="font-family: 'Merriweather';">Julie Hansen Partnership</h3>
+                <p class="text-justify">
+                    An elite group of the East Bay’s most talented and visionary real estate professionals believed
+                    buyers and sellers deserved more from their real estate company. More service. More resources. More
+                    integrity. More global reach. In a word, more of everything people should expect when they buy or
+                    sell their homes.
+                </p>
+                <br>
+                <p>
+                    <strong>ADDRESS</strong><br>
+                    4733 Chabot Drive #100<br>
+                    Pleasanton, CA 94588<br>
+                    Julie Hansen-Orvis | CA DRE# 00934447
+                </p>
+                <br>
+                <p>
+                    <strong>CONTACT INFORMATION</strong><br>
+                    (925) 553-6707<br>
+                    <a href="mailto:luxuryhomesinwc@icloud.com">luxuryhomesinwc@icloud.com</a>
+                </p>
+            </div>
+
+            <!-- Right side content -->
+            <div class="max-w-lg mx-auto mb-4">
+                <h3 class="text-2xl font-bold mb-2" style="font-family: 'Merriweather';">Newsletter</h3>
+                <p>Subscribe to our Newsletter for latest news and updates. <br> Stay tuned!</p>
+                <form action="#" method="POST" class="mt-4">
+                    <label for="email" class="sr-only">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email"
+                        class="bg-gray-200 px-4 py-2 w-full rounded-md">
+                    <button type="submit"
+                        class="bg-white text-gray-800 font-bold py-2 px-4 mt-2 rounded-md hover:bg-gray-300 transition duration-300">Subscribe</button>
+                </form>
+
+                <!-- Logos -->
+                <div class="flex mt-8">
+                    <div class="mx-4">
+                        <img src="images/facebook.png" alt="Logo 1" class="h-10">
+                    </div>
+                    <div class="mx-4">
+                        <img src="images/instagram.png" alt="Logo 2" class="h-10">
+                    </div>
+                    <div class="mx-4">
+                        <img src="images/linkedin.png" alt="Logo 3" class="h-10">
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- Attribution -->
+        <div class="text-center mt-4">
+            <p>Webpage Designed & Developed by James Orcales</p>
+            <p>&copy; 2024 Julie Hansen Partnership. All rights reserved. | <a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+
+
+</body>
+
+</html>
